@@ -2,6 +2,9 @@ import express from 'express'
 import dotenv from 'dotenv'
 import { pool } from './config/db.js'
 import { router as authRouter } from './routes/auth.js'
+import { router as lotesRouter } from './routes/lotes.js'
+
+
 
 dotenv.config()
 
@@ -10,6 +13,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.json())
 app.use('/api/auth', authRouter)
+app.use('/api/lotes', lotesRouter)
 
 // Probar conexión a la base de datos
 pool.query('SELECT NOW()')
