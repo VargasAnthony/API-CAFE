@@ -7,7 +7,6 @@ import { router as proveedoresRouter } from './routes/proveedores.js'
 
 
 
-
 dotenv.config()
 
 const app = express()

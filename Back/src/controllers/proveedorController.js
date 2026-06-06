@@ -5,6 +5,7 @@ const getProveedores = async (req, res) => {
     const obten = await obtenerTodos()
     res.json(obten)
   } catch (error) {
+    console.log(error)  // ← agrégalo aquí
     res.status(500).json({ error: 'Error interno del servidor' })
   }
 }
@@ -26,6 +27,7 @@ const crearProveedor = async (req, res) => {
     const nuevoProveedor = await crearProveedorModel(datos)
     res.status(201).json(nuevoProveedor)
   } catch (error) {
+  console.log(error) // ← agrega esta línea
     res.status(500).json({ error: 'Error interno del servidor' })
   }
 }
