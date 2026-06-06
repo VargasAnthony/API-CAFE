@@ -8,12 +8,13 @@ import { router as productosRouter } from './routes/productos.js'
 import { router as ventasRouter } from './routes/ventas.js'
 import { router as usuariosRouter } from './routes/usuarios.js'
 import { router as reportesRouter } from './routes/reportes.js'
-
+import cors from 'cors'
 
 
 dotenv.config()
 
 const app = express()
+app.use(cors())
 const PORT = process.env.PORT || 3000
 
 app.use(express.json())
