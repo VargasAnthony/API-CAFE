@@ -8,4 +8,28 @@ const encontrarPorEmail = async (email) => {
   return resultado.rows[0]
 }
 
-export { encontrarPorEmail }
+
+const obtenerTodos = async () => {
+  const resultado = await pool.query(
+    'SELECT id, nombre, apellido, email, rol_id FROM usuario ORDER BY nombre ASC'
+  )
+  return resultado.rows
+}
+
+const obtenerPorId = async (id) => {
+  const resultado = await pool.query(
+    'SELECT * FROM usuario WHERE id = $1',
+    [id]
+  )
+  return resultado.rows[0]
+}
+
+const desactivarUsuario = async (id) => {
+  const resultado = await pool.query(
+    'UPDATE usuario SET activo = false WHERE id = $1 RETURNING *',
+    [id]
+  )
+  return resultado.rows[0]
+}
+
+export { encontrarPorEmail, obtenerTodos, obtenerPorId, desactivarUsuario }
