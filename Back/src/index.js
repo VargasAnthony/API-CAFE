@@ -7,6 +7,7 @@ import { router as proveedoresRouter } from './routes/proveedores.js'
 import { router as productosRouter } from './routes/productos.js'
 import { router as ventasRouter } from './routes/ventas.js'
 import { router as usuariosRouter } from './routes/usuarios.js'
+import { router as reportesRouter } from './routes/reportes.js'
 
 
 
@@ -22,6 +23,7 @@ app.use('/api/proveedores', proveedoresRouter)
 app.use('/api/productos', productosRouter)
 app.use('/api/ventas', ventasRouter)
 app.use('/api/usuarios', usuariosRouter)
+app.use('/api/reportes', reportesRouter)
 
 // Probar conexión a la base de datos
 pool.query('SELECT NOW()')
