@@ -24,3 +24,5 @@ const crearLote = async (datos) => {
   )
   return resultado.rows[0]
 }
+
+export { obtenerTodos, obtenerPorId, crearLote }

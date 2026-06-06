@@ -1,8 +1,7 @@
-import { obtenerTodos, obtenerPorId, crearLote } from '../models/loteModel.js'
+import { obtenerTodos, obtenerPorId, crearLote as crearLoteModel } from '../models/loteModel.js'
 
 const getLotes = async (req, res) => {
   try {
-    // llama a obtenerTodos() y responde con los datos
     const obten = await obtenerTodos()
     res.json(obten)
   } catch (error) {
@@ -13,7 +12,7 @@ const getLotes = async (req, res) => {
 const getLotePorId = async (req, res) => {
   try {
     const { id } = req.params
-    const obtenId = await obtenerTodos(id)
+    const lote = await obtenerPorId(id)
     if (!lote) return res.status(404).json({ error: 'Lote no encontrado' })
     res.json(lote)
   } catch (error) {
@@ -24,9 +23,11 @@ const getLotePorId = async (req, res) => {
 const crearLote = async (req, res) => {
   try {
     const datos = req.body
-    const creaLote = await crearLote(datos)
+    const creaLote = await crearLoteModel(datos)
     res.status(201).json(creaLote)
   } catch (error) {
     res.status(500).json({ error: 'Error interno del servidor' })
   }
 }
+
+export { getLotes, getLotePorId, crearLote }
