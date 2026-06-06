@@ -4,6 +4,7 @@ import { pool } from './config/db.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as lotesRouter } from './routes/lotes.js'
 import { router as proveedoresRouter } from './routes/proveedores.js'
+import { router as productosRouter } from './routes/productos.js'
 
 
 
@@ -16,6 +17,7 @@ app.use(express.json())
 app.use('/api/auth', authRouter)
 app.use('/api/lotes', lotesRouter)
 app.use('/api/proveedores', proveedoresRouter)
+app.use('/api/productos', productosRouter)
 
 // Probar conexión a la base de datos
 pool.query('SELECT NOW()')
