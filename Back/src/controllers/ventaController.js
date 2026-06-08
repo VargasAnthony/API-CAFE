@@ -16,6 +16,7 @@ const registrarVenta = async (req, res) => {
     }
     res.status(201).json(venta)
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: 'Error interno del servidor' })
   }
 }

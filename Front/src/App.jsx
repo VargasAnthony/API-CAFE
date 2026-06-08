@@ -3,6 +3,7 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Lotes from './pages/Lotes'
 import Productos from './pages/Productos'
+import Ventas from './pages/ventas'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/lotes" element={<Lotes />} />
         <Route path="/productos" element={<Productos />} />
+        <Route path="/ventas" element={<Ventas />} />
       </Routes>
     </BrowserRouter>
   )
