@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard'
 import Lotes from './pages/Lotes'
 import Productos from './pages/Productos'
 import Ventas from './pages/ventas'
+import Reportes from './pages/reportes'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/lotes" element={<Lotes />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/ventas" element={<Ventas />} />
+        <Route path="/reportes" element={<Reportes />} />
       </Routes>
     </BrowserRouter>
   )
