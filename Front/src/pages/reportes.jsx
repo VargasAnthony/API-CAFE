@@ -88,7 +88,7 @@ function Reportes() {
                   <tr><td colSpan={3} className="px-6 py-4 text-gray-500 text-center">Sin datos</td></tr>
                 ) : reporteVentas.map((r, i) => (
                   <tr key={i} className="border-t border-[#39FF14]/10 hover:bg-[#39FF14]/5 transition">
-                    <td className={tdClass}>{new Date(r.periodo).toLocaleDateString()}</td>
+                    <td>{r.periodo ? new Date(r.periodo).toLocaleDateString('es-PE', { timeZone: 'UTC' }) : '-'}</td>
                     <td className={tdClass}>{r.total_ventas}</td>
                     <td className={tdClass + " text-[#39FF14] font-bold"}>S/ {r.ingresos_totales}</td>
                   </tr>
@@ -143,7 +143,7 @@ function Reportes() {
                   <tr><td colSpan={4} className="px-6 py-4 text-gray-500 text-center">Sin datos</td></tr>
                 ) : reporteCompras.map((r, i) => (
                   <tr key={i} className="border-t border-[#39FF14]/10 hover:bg-[#39FF14]/5 transition">
-                    <td className={tdClass}>{new Date(r.periodo).toLocaleDateString()}</td>
+                    <td>{r.periodo ? new Date(r.periodo).toLocaleDateString('es-PE', { timeZone: 'UTC' }) : '-'}</td>
                     <td className={tdClass}>{r.total_lotes}</td>
                     <td className={tdClass}>{r.kg_totales} kg</td>
                     <td className={tdClass + " text-[#39FF14] font-bold"}>S/ {r.costo_total}</td>
