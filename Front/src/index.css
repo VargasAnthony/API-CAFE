@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --verde: #39FF14;
+  --verde-oscuro: #1a7a0a;
+  --negro: #0a0a0a;
+  --gris-oscuro: #111111;
+  --gris-card: #1a1a1a;
+  --texto: #e0e0e0;
+}
+
+body {
+  background-color: var(--negro);
+  color: var(--texto);
+  font-family: 'Segoe UI', sans-serif;
+}

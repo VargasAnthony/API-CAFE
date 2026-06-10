@@ -1,12 +1,14 @@
-import { encontrarPorEmail, obtenerTodos, obtenerPorId, desactivarUsuario as desactivarUsuarioModel } from "../models/usuarioModel.js"
+import { encontrarPorEmail, obtenerTodos, obtenerPorId, desactivarUsuario as desactivarUsuarioModel, crearUsuario as crearUsuarioModel, obtenerRoles } from "../models/usuarioModel.js"
 
-const getUsuarios = async (req, res) => {
-    try{
-        const obtener = await obtenerTodos()
-        res.json(obtener)
-    }   catch (error) {
-        res.status(500).json({error: 'ERROR INTERNO DEL SERVIDOR'})
-    }
+const postUsuario = async (req, res) => {
+  try {
+    const datos = req.body
+    const nuevoUsuario = await crearUsuarioModel(datos)
+    res.status(201).json(nuevoUsuario)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: 'Error interno del servidor' })
+  }
 }
 
 const getUsuariosPorId = async (req, res) => {
@@ -17,6 +19,16 @@ const getUsuariosPorId = async (req, res) => {
             res.json(usuario)
     } catch (error) {
         res.status(500).json({error: 'ERROR INTERNO DEL SERVIDOR' })
+    }
+}
+
+const getUsuarios = async (req, res) => {
+    try {
+        const obten = await obtenerTodos()
+        res.json(obten)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ error: 'ERROR INTERNO DEL SERVIDOR' })
     }
 }
 
@@ -31,4 +43,14 @@ const desactivarUsuario = async (req, res) => {
   }
 }
 
-export { getUsuarios, getUsuariosPorId, desactivarUsuario }
+const getRoles = async (req, res) => {
+  try {
+    const roles = await obtenerRoles()
+    res.json(roles)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({ error: 'Error interno del servidor' })
+  }
+}
+
+export { getUsuarios, getUsuariosPorId, desactivarUsuario, postUsuario, getRoles }

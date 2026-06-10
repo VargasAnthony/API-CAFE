@@ -5,6 +5,7 @@ import Lotes from './pages/Lotes'
 import Productos from './pages/Productos'
 import Ventas from './pages/ventas'
 import Reportes from './pages/reportes'
+import Usuarios from './pages/Usuarios'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/productos" element={<Productos />} />
         <Route path="/ventas" element={<Ventas />} />
         <Route path="/reportes" element={<Reportes />} />
+        <Route path="/usuarios" element={<Usuarios />} />
       </Routes>
     </BrowserRouter>
   )
